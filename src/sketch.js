@@ -7,17 +7,19 @@ let lives;
 let startScreen = true 
 let ScreenStart = 0
 let invadersArray = [];
-let invadersX = [25, 115, 205, 295, 385, 475, 25, 115, 205, 295, 385, 475, 25, 115, 205, 295, 385, 475, 25, 115, 205, 295, 385, 475];
+let invadersX = [125, 215, 305, 395, 485, 575, 125, 215, 305, 395, 485, 575, 125, 215, 305, 395, 485, 575, 125, 215, 305, 395, 485, 575];
 let invadersY = [50, 50, 50, 50, 50, 50, 125, 125, 125, 125, 125, 125, 200, 200, 200, 200, 200, 200, 275, 275, 275, 275, 275, 275];
 let myXPos, myYPos;
 let mainCharacterInfo = [];
 let myUp, myDown, myLeft, myRight; // Add Borders
 let bullets;
+// Add Images
 
 
-// function preload(){
-    
-// }
+function preload(){
+    // spaceshipImg = loadImage('images/maincharacter.png'); // Fix images later
+    // invaderImg = loadImage('images/Space_invaders_alien.png');    
+}
 
 function setup(){
     createCanvas(700,500);
@@ -34,6 +36,7 @@ function setup(){
     myXPos = 250;
     myYPos = 400;
     rectMode(CENTER);
+
 }
 
 function draw(){
@@ -59,7 +62,7 @@ function startGame(){
 
     // Main character
     fill(255,0,0);
-    rect(myXPos, myYPos, 100, 100);
+    rect(myXPos, myYPos, 75, 75);
     if (keyIsDown(LEFT_ARROW)) {
         myXPos -= 3;
     }
@@ -78,16 +81,14 @@ function shoot(){
         fill(255);
         text('Shooting!!!', 250, 250, 100, 100);
         bullets = new Bullet(myXPos, myYPos);
-        /*
         while (bullets.yPos > 0) { // While the bullets are still on the screen
             bullets.yPos -= 3;
             
-            if () {  // If the bullet borders touch the borders of the alien
-                // Remove the alien
-            }
+            // if () {  // If the bullet borders touch the borders of the alien
+            //     // Remove the alien
+            // }
             
         }
-        */
 
     }
 }
@@ -119,7 +120,7 @@ class Invader {
     }
 }
 
-class Bullet{
+class Bullet {
     constructor(x, y){
         this.xPos = x;
         this.yPos = y;
